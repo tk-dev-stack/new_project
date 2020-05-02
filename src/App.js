@@ -2,7 +2,9 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.scss';
 import AppRouting from './AppRouting';
-import { withRouter } from "react-router-dom";
+
+
+
 
 class App extends React.Component {
     render() {
@@ -14,4 +16,4 @@ class App extends React.Component {
     }
 }
 
-export default withRouter(App);
+export default App;

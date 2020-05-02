@@ -1,18 +1,17 @@
 import React, { Component } from 'react'
-import { Switch, Route, Redirect } from 'react-router-dom';
-
 import Dashbord from '../Dashbord/Dashbord'
+import { Switch, Route, Redirect } from 'react-router-dom';
 import CleanlinessAndSanitization from '../CleanlinessAndSanitization/CleanlinessAndSanitization';
 import EmployeeHealth from '../EmployeeHealth/EmployeeHealth';
 import CourseDetails from '../TraningAndAwareness/CourseDetails/CourseDetails';
 import NewsAndUpdates from '../NewsAndUpdates/NewsAndUpdates';
 import TraningAndAwareness from '../TraningAndAwareness/TraningAndAwareness';
-
-class HomeRouting extends Component {   
+class HomeRouting extends Component {
+   
     render() {
         return (
             <Switch>
-                <Route exact path='/home/dashbord' component={Dashbord} />
+                <Route exact path='/home/dashbord' render={() => (<Dashbord />)} />
                 <Route exact path='/home/employeehealth' component={EmployeeHealth} />
                 <Route exact path='/home/cleansanitization' component={CleanlinessAndSanitization}/>
                 <Route exact path='/home/traningawareness' component={TraningAndAwareness}/>

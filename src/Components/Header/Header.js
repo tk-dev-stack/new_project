@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
-import logo from '../../assets/images/logo-white.png';
+import { Dropdown } from 'react-bootstrap';
+import logo from '../../assets/images/logo-white.svg';
 import bellIcon from '../../assets/images/bell.svg';
 import searchIcon from '../../assets/images/search.svg';
 import userImg from '../../assets/images/user.png';
@@ -19,7 +19,7 @@ class Header extends Component {
 	}
 
 	logout = ()=>{
-		this.props.history.push('login');
+		this.props.history.push('/login');
 		sessionStorage.clear();
 	}
 
@@ -111,16 +111,16 @@ class Header extends Component {
 							</div>
 						</li>                    
 						<li className="nav-item dropdown user-profile">
-
-                        <a className="nav-link" href="#" role="button" id="user-login" onClick={this.logout} data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						<img src={userImg} />
-                        </a>
-
-                        <div className="dropdown-menu dropdown-menu-right" aria-labelledby="user-login">
-                            <a className="dropdown-item" href="profile.html">Profile</a>
-                            <a className="dropdown-item" href="login.html">Logout</a>
-                        </div>
+						<Dropdown>
+							<Dropdown.Toggle className="nav-link" id="user-profile">
+								<img src={userImg} />
+							</Dropdown.Toggle>
+							<Dropdown.Menu>
+								<Dropdown.Item  onClick={this.logout}>Logout</Dropdown.Item>
+							</Dropdown.Menu>
+						</Dropdown>                       
                     </li>
+					
                 	</ul>
 				</header>			
 		);

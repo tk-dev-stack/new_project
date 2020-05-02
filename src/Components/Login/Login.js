@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import loginImg from '../../assets/images/login-img.png';
-import loginLogo from '../../assets/images/akku-logo.png';
+import loginLogo from '../../assets/images/logo.svg';
 import ccpLogo from '../../assets/images/ccp-logo.png';
-import pwdIcon from '../../assets/images/qs.svg';
-import emailIcon from '../../assets/images/mail.svg';
+import pwdIcon from '../../assets/images/password.svg';
+import emailIcon from '../../assets/images/email.svg';
 import axios from 'axios';
 
 import BaseUrl from '../../Service/BaseUrl';
@@ -128,9 +128,9 @@ class Login extends Component {
 										onChange={this.formValChange.bind(this)} value={this.state.password} />
 									{isError.password.length > 0 && (
 										<Form.Text className="error-msg">{isError.password}</Form.Text>
-									)}
-									<div className="input-icon">
-										<img src={pwdIcon} className="img-fluid" />
+									)}									
+									<div className="input-icon pwd">
+										<img src={pwdIcon} className="img-fluid"/>
 									</div>
 								</Form.Group>
 								{

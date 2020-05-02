@@ -1,3 +1,6 @@
+.error-msg {
+    color: #f00000;
+}
 .login-container {
     height: 100vh;
 
@@ -32,16 +35,21 @@
                     border-bottom: 1px solid #212529;
                     box-shadow: none;
                 }
-            }
-
-            .error-msg {
-                color: #f00000;
-            }
+            }            
 
             .input-icon {
                 position: absolute;
                 right: 5px;
                 top: 3px;
+                opacity: .2;
+                img {
+                    width: 24px;
+                }
+                &.pwd {
+                    img {
+                        height: 26px;
+                    }
+                }
             }
 
         }
