@@ -14,26 +14,7 @@ class Sidebar extends Component {
 	}	
 	componentDidMount(){		
 	}
-	menuRedirect=(menuKey)=>{
-		// if(menuKey == 'dashbord'){
-		// 	this.props.history.push("/dashbord");
-		// }
-		if(menuKey == 'employeehealth'){
-			// this.props.history.push("/employeehealth");
-			// this.props.router.push('/employeehealth');
-		}
-		// if(menuKey == 'cleansanitization'){
-		// 	this.props.history.push("/cleansanitization");
-		// }
-		// if(menuKey == 'traningawareness'){
-		// 	this.props.history.push("/traningawareness");
-		// }
-		// if(menuKey == 'coursedetails'){
-		// 	this.props.history.push("/coursedetails");
-		// }
-		// if(menuKey == 'newsandupdates'){
-		// 	this.props.history.push("/newsandupdates");	
-		// }		
+	menuRedirect=(menuKey)=>{				
 	}
 	render() {
 		return (			
