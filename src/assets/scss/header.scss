@@ -1,0 +1,479 @@
+.header {
+    height: 100px;
+    padding: 0;
+    background: #30303D;
+    background: none;
+
+    &.have-bg {
+        background: rgba(1, 1, 1, 1);
+    }
+
+    .logo {
+        height: 100px;
+        width: 100px;
+        margin-right: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #010101;
+        color: #ffffff;
+
+        img {
+            max-height: 90px;
+            // height: 86px;
+        }
+    }
+
+    .welcome-text {
+        div {
+            display: block;
+            line-height: 1;
+
+            &.user-name {
+                font-size: 2.2em;
+                margin: 0 0 2px;
+                font-weight: 300;
+                color: #00DCD2;
+                letter-spacing: 1px;
+
+                i {
+                    // font-size: .8em;
+                    font-style: normal;
+                }
+            }
+
+            span {
+                display: inline-block;
+                font-size: 16px;
+
+                &.team-name {
+                    /* margin-right: 20px; */
+                    font-weight: 300;
+                    color: #3D3D3D;
+                    letter-spacing: .5px;
+                    margin-left: 2px;
+                }
+
+                &.current-time {
+                    opacity: .9;
+                }
+            }
+        }
+    }
+
+    .navbar-nav {
+        flex-direction: row;
+        padding-right: 60px;
+
+        .nav-item {
+            padding: 0 1.5rem;
+
+            .nav-link {
+                color: #5C4E8E;
+                background: #F1F0F5;
+                border-radius: 50%;
+                width: 44px;
+                height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                transition: all .2s ease;
+                position: relative;
+
+                .fa {
+                    font-size: 1.25rem;
+                    color: #5C4E8E;
+                }
+
+                .badge {
+                    position: absolute;
+                    top: 0;
+                    right: -6px;
+                    background-color: #6F6F6F;
+                    font-size: 66%;
+                }
+
+                &:hover {
+                    background: #e6e2f5;
+                }
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+
+            &.comments {
+                padding-left: .5rem;
+            }
+
+            &.user-profile {
+                // overflow: hidden;
+
+                .nav-link {
+                    // background-image: url(../images/user.png);
+                    background-repeat: no-repeat;
+                    // background-size: cover;
+                    background-position: center;
+
+                }
+
+                .dropdown-menu {
+                    padding: .5rem;
+
+                    a {
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+                        text-transform: capitalize;
+                        display: flex;
+                        align-items: center;
+                        font-size: .9rem;
+
+                        i {
+                            padding-right: .3rem;
+                            font-size: .9rem;
+                        }
+
+                        &:last-child {
+                            border-bottom: none;
+                        }
+
+                        &:hover {
+                            // background-color: $theme-color;
+                            // color: $primary-color;
+                            border-radius: 6px;
+                        }
+
+                        padding: .4rem .5rem;
+                    }
+
+                }
+            }
+
+            &.search {
+                position: relative;
+                min-width: 350px;
+
+                .search-icon {
+                    position: absolute;
+                    right: 33px;
+                    top: 6px;
+                }
+
+                .form-control {
+                    background-color: #f2f2f2;
+                    border: 1px solid #ACACAC;
+                    border-radius: .5rem;
+                    padding-right: 2rem;
+                }
+            }
+
+            &.user-profile,
+            &.notification {
+                // border-left: 1px solid #EDEDF3;
+            }
+
+            // Notification Message Style
+            .noti-dropdown {
+                min-width: 540px;
+                border-radius: 10px;
+
+                .noti-container {
+                    max-height: 500px;
+                    overflow: auto;
+                }
+
+                .dropdown-title {
+                    padding: 0.75rem 1.25rem;
+                    border-bottom: 1px solid #F0F1F3;
+
+                    h4 {
+                        margin: 0;
+                        font-weight: 600;
+                        font-size: 1.3rem;
+                        letter-spacing: .8px;
+                    }
+                }
+
+                .noti-list {
+                    .noti {
+                        margin: 0;
+                        padding: 15px 10px;
+
+                        &:hover {
+                            background-color: #F9F9F9;
+                            cursor: pointer;
+                        }
+
+                        .col {
+                            padding: 0 10px;
+                        }
+
+                        .profile-pic {
+                            flex: none;
+                            width: 80px;
+                            margin: 0;
+
+                            .pic {
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                background-size: cover;
+                                max-width: 100%;
+                                max-height: 100%;
+                                width: 60px;
+                                height: 60px;
+                                background-color: #F1F0F5;
+                                border-radius: 50%;
+                                overflow: hidden;
+                            }
+                        }
+
+                        .noti-details {
+                            .user-info {
+                                flex: none;
+                                width: 135px;
+                                padding-right: 0;
+
+                                .user-name {
+                                    margin: 0;
+                                    font-size: 1rem;
+                                    color: #585858;
+                                    letter-spacing: 0;
+                                    padding-right: 10px;
+                                    border-right: 1px solid #ececec;
+                                }
+
+                                small {
+                                    top: -5px;
+                                    position: relative;
+                                    font-size: 10px;
+                                    color: #b5b5b5;
+                                }
+                            }
+
+                            .quote-num {
+                                h6 {
+                                    font-size: .9rem;
+                                    color: #585858;
+                                    margin: 0;
+
+                                    span {
+                                        font-weight: 400;
+                                    }
+                                }
+                            }
+
+                            .quote-msg {
+                                p {
+                                    margin: 0;
+                                    font-size: 10px;
+                                    color: #676767;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    @media screen and (max-width:1300px) {
+        .welcome-text {
+            div {
+                &.user-name {
+                    font-size: 1.9em;
+                }
+            }
+        }
+    }
+
+
+    @media screen and (max-width:1200px) {
+        background: rgba(1, 1, 1, .8);
+        // height: 105px;
+
+        .welcome-text {
+            div {
+                &.user-name {
+                    font-size: 1.8em;
+                    width: 300px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+
+                span {
+                    font-size: 14px;
+
+                    &.team-name {
+                        width: 130px;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                    }
+                }
+            }
+        }
+
+
+    }
+
+    @media screen and (max-width:1024px) {
+        background: rgba(1, 1, 1, .8);
+        height: 105px;
+        padding: 0 30px;
+
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            z-index: 2;
+            top: 10px;
+            background: none;
+
+            img {
+                max-height: 120px;
+                height: 90px;
+            }
+        }
+
+        .welcome-text {
+            position: absolute;
+            right: 100px;
+            text-align: right;
+
+            div {
+                &.user-name {
+                    font-size: 1.5em;
+                    width: 250px;
+                }
+
+                span {
+                    &.team-name {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .current-time {
+                display: none;
+            }
+        }
+
+        .bars {
+            display: block !important;
+            position: absolute;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            text-align: center;
+            border-radius: 50%;
+            background: #353333;
+            color: #cecece;
+        }
+
+
+    }
+
+    @media screen and (max-width:800px) {
+        height: 95px;
+        padding: 0 15px;
+
+        .logo {
+            background: none;
+            top: 0;
+
+            img {
+                height: 80px;
+                max-height: 80px;
+            }
+        }
+
+        .bars {
+            left: 15px;
+            width: 46px;
+            height: 46px;
+            line-height: 46px;
+
+            svg {
+                height: 26px;
+            }
+        }
+
+        .welcome-text {
+            right: 70px;
+
+            div {
+                text-align: right;
+
+                span {
+                    font-size: 12px;
+
+                    &.team-name {
+                        width: 110px;
+                    }
+                }
+
+                &.user-name {
+                    font-size: 1em;
+                    margin: 0 0 5px;
+                    width: 180px;
+                }
+            }
+        }
+
+
+
+    }
+
+    @media screen and (max-width:600px) {
+        .welcome-text {
+            div {
+                span {
+                    &.team-name {
+                        width: 80px;
+                    }
+                }
+
+                &.user-name {
+                    width: 130px;
+                }
+            }
+        }
+
+
+    }
+
+    @media screen and (max-width:480px) {
+        height: 85px;
+
+        .bars {
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            font-weight: 400;
+        }
+
+        .logo {
+            top: -10px;
+
+            img {
+                height: 70px;
+                max-height: 70px;
+            }
+        }
+
+        .welcome-text {
+            display: none;
+        }
+
+
+
+
+    }
+
+    @media screen and (max-width:380px) {}
+}
