@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import loginImg from '../../assets/images/login-img.png';
 import loginLogo from '../../assets/images/logo.svg';
-import ccpLogo from '../../assets/images/ccp-logo.png';
+import ccpLogo from '../../assets/images/cloudnow-logo.png';
 import pwdIcon from '../../assets/images/password.svg';
 import emailIcon from '../../assets/images/email.svg';
 import axios from 'axios';
@@ -26,21 +26,23 @@ class Login extends Component {
 			message: ''
 		}
 	}
-	redirectToDashbord = () => {
-		this.props.history.push("/home/dashbord");
+	redirectToDashboard = () => {
+		this.props.history.push("/home/dashboard");
+	};
+	redirectToOnsitesurvey = () => {
+		this.props.history.push("/home/onsitesurvey");
 	};
 	componentDidMount() {
 		if (AuthGuard.getAuth() == true || AuthGuard.getAuth() == 'true') {
-			this.redirectToDashbord();
+			this.redirectToDashboard();
 		}
 	}
-
 	emailValidator = (Param) => {
 		var returnMsg = '';
 		if (mailformat.test(Param)) {
 			returnMsg = '';
 		} else {
-			returnMsg = 'Email id invalid';
+			returnMsg = 'Please enter a valid email id';
 		}
 		return returnMsg;
 	}
@@ -80,6 +82,7 @@ class Login extends Component {
 				"emailId": this.state.email,
 				"password": this.state.password
 			};
+			debugger;
 			LoginService.onAuthenticate(requestData).then(Response => {
 				if (Response.status.success == 'Fail') {
 					this.setState({ message: Response.status.message });
@@ -87,7 +90,11 @@ class Login extends Component {
 				} else {
 					sessionStorage.LoginUserObject = JSON.stringify(Response.data);
 					sessionStorage.setItem('isAuthorized',true);
-					this.redirectToDashbord();
+					if(Response.data.bcmUserGroupWrapper.userGroup === 'Security'){
+						this.redirectToOnsitesurvey();
+					}else{
+						this.redirectToDashboard();
+					}
 				}
 			});
 		} else {

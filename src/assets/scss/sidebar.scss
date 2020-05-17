@@ -1,5 +1,9 @@
+
+@import "varibales";
+@import "mixin";
+
 // Sidebar
-.sidebar {
+#sidebar {
     position: fixed;
     left: 0;
     bottom: 0;
@@ -8,11 +12,24 @@
     background: #171717;
     display: flex;
     align-items: center;
-
+    z-index: 999;
+    @include breakpoint(tablet-port)
+    {
+        left: -75px !important;
+        height: calc(100% - 79px)!important;
+        background: rgba(0, 0, 0, 0.79);
+        z-index: 999999999999;
+        &.active {
+            left: 0px !important;
+        }
+    }
     .menu {
         text-align: center;
         width: 100%;
-
+        @include breakpoint(tablet-port)
+        {
+           padding: 0 !important;
+        }
         ul {
             margin: 0;
 
@@ -107,11 +124,11 @@
     }
 
     @media screen and (max-width:1024px) {
-        left: -100px;
-        z-index: 1035;
+        left: 0;
+        width: 70px;
         height: 100%;
         transition: left .3s ease;
-
+        height: calc(100% - 79px)!important;
         &.open {
             left: 0;
         }
@@ -137,6 +154,7 @@
                 }
             }
         }
+        
     }
 
     @media screen and (max-width:565px) {

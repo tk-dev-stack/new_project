@@ -8,10 +8,10 @@ import { HashRouter ,Router} from "react-router-dom";
 import { createBrowserHistory } from "history";
 const customHistory = createBrowserHistory();
 
-ReactDOM.render(
-  <Router history={customHistory}>
-    <App />
-  </Router>,
+ReactDOM.render(  
+    <Router history={customHistory}>
+      <App />
+    </Router>,
   document.getElementById('root')
 );
 // If you want your app to work offline and load faster, you can change

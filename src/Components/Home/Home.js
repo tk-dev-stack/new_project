@@ -4,6 +4,13 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 
  class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+        };
+        console.log(props);
+       // debugger;
+    }
     render() {
         return (
             <div>
@@ -15,4 +22,4 @@ import Sidebar from '../Sidebar/Sidebar';
     }
 }
 
-export default Home
+export default Home;

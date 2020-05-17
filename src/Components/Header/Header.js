@@ -3,6 +3,7 @@ import { Dropdown } from 'react-bootstrap';
 import logo from '../../assets/images/logo-white.svg';
 import bellIcon from '../../assets/images/bell.svg';
 import searchIcon from '../../assets/images/search.svg';
+import searchIconWhite from '../../assets/images/loupe.svg';
 import userImg from '../../assets/images/user.png';
 import { withRouter } from 'react-router-dom';
 
@@ -25,20 +26,24 @@ class Header extends Component {
 
 	render() {
 		return (
+				
 				<header className="header navbar fixed-top">
+					<div className="sticky">
+					<ul className="stickyList">
+						<li><i className="settingIcon"></i></li>
+						<li><i className="messageIcon"></i></li>
+					</ul>
+				</div>
+				
 					<a className="navbar-brand logo">
 						<img src={logo} />
 					</a>
 					<button className="navbar-toggler sidebar-toggler d-none" type="button">
 						<span className="navbar-toggler-icon"></span>
 					</button>
-					<div className="welcome-text">
-						<div className="user-name">Hello <i> Kesava,</i></div>
-						<div>
-						<span className="team-name">Have a nice day at work</span>
-						</div>
-					</div>									
+														
 					<ul className="nav navbar-nav ml-auto">
+					<li className="nav-item searchPhone"><span className="search-icon"><img src={searchIconWhite} /></span></li>
 					<li className="nav-item search">
 						<form>
 							<input className="form-control" type="text" placeholder="Search" aria-label="Search"/>

@@ -10,43 +10,44 @@ class Sidebar extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			Data: []			
+			Data: [],
+			userGroup:'',
+			addClass: false			
 		};
 	}	
-	componentDidMount(){		
+	componentDidMount(){
+		this.setState({userGroup:JSON.parse(sessionStorage.LoginUserObject).bcmUserGroupWrapper.userGroup});								
 	}
-	menuRedirect=(menuKey)=>{
-		// if(menuKey == 'dashbord'){
-		// 	this.props.history.push("/dashbord");
-		// }
-		if(menuKey == 'employeehealth'){
-			// this.props.history.push("/employeehealth");
-			// this.props.router.push('/employeehealth');
-		}
-		// if(menuKey == 'cleansanitization'){
-		// 	this.props.history.push("/cleansanitization");
-		// }
-		// if(menuKey == 'traningawareness'){
-		// 	this.props.history.push("/traningawareness");
-		// }
-		// if(menuKey == 'coursedetails'){
-		// 	this.props.history.push("/coursedetails");
-		// }
-		// if(menuKey == 'newsandupdates'){
-		// 	this.props.history.push("/newsandupdates");	
-		// }		
-	}
+	toggle() {
+		this.setState({addClass: !this.state.addClass});
+	  }
 	render() {
+		let boxClass = ["box"];
+    if(this.state.addClass) {
+      boxClass.push('active');
+    }
 		return (			
-			<div className="sidebar">
+			<div id="sidebar" className={boxClass.join(' ')}>
+				<div className={boxClass.join(' ')} onClick={this.toggle.bind(this)} id="toggle">
+				<span></span>
+				</div>
 			  <div className="menu">
-				<ul className="list-unstyled">
-				  	<li><NavLink to="/home/dashbord" ><span className="have-icon"><img src={dashboardIcon}/></span></NavLink></li>
-				  	<li><NavLink to="/home/employeehealth"><span className="have-icon"><img src={empHealth}/></span></NavLink></li>
-					<li><NavLink to="/home/cleansanitization"><span className="have-icon"><img src={cleanSan}/></span></NavLink></li>
-				  	<li><NavLink to="/home/traningawareness"><span className="have-icon"><img src={trainAware}/></span></NavLink></li>
-					<li><NavLink to="/home/newsandupdates"><span className="have-icon"><img src={newsUpdates}/></span></NavLink></li>					
-				</ul>
+			  {
+				this.state.userGroup == 'Security' ?(
+					<ul className="list-unstyled">											
+						<li><NavLink to="/home/onsitesurvey"><span className="have-icon"><img src={empHealth}/></span></NavLink></li>																				  					
+					</ul>
+				):(
+					<ul className="list-unstyled">																	
+						<li><NavLink to="/home/dashboard" ><span className="have-icon"><img src={dashboardIcon}/></span></NavLink></li>
+						<li><NavLink to="/home/employeehealth"><span className="have-icon"><img src={empHealth}/></span></NavLink></li>
+						<li><NavLink to="/home/cleansanitization"><span className="have-icon"><img src={cleanSan}/></span></NavLink></li>
+						<li><NavLink to="/home/traningawareness"><span className="have-icon"><img src={trainAware}/></span></NavLink></li>
+						<li><NavLink to="/home/newsandupdates"><span className="have-icon"><img src={newsUpdates}/></span></NavLink></li>					
+						<li><NavLink to="/home/onsitesurvey"><span className="have-icon"><img src={empHealth}/></span></NavLink></li>																				  					
+					</ul>
+				)
+			  }				
 			  </div>
 			</div>			
 		);
